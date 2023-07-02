@@ -23,37 +23,7 @@ def perf(_func=None, *, o=None, n=1):
             else:
                 o.append(tim)
         if o is None:
-            print(tot/cnt)
+            print(tot / cnt)
         return rst
+
     return measure_time
-
-
-x = torch.rand(1000, 1000, device="cuda")
-y = torch.rand(1000, 1000, device="cuda")
-
-@perf
-def mul1(x, y):
-    return x*y
-z = mul1(x,y)
-
-rst = []
-@perf(o=rst)
-def mul2(x, y):
-    return x*y
-z=mul2(x,y)
-print(rst)
-
-
-rst = []
-@perf(n=10)
-def mul3(x, y):
-    return x*y
-z=mul3(x,y)
-
-rst = []
-@perf(o=rst, n=10)
-def mul4(x, y):
-    return x*y
-z=mul4(x,y)
-print(rst)
-

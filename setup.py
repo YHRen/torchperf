@@ -1,6 +1,5 @@
+import re
 from pathlib import Path
-import codecs, re
-
 from setuptools import find_namespace_packages, setup
 
 
@@ -22,17 +21,17 @@ with open("README.md", "r") as fh:
         author="Yihui Ren",
         author_email="yren@bnl.gov",
         description="A pytorch perf decorator",
-        license="MIT",
+        license="BSD-3",
         long_description=LONG_DESC,
         long_description_content_type="text/markdown",
         url="https://github.com/yhren/torchperf",
         keywords="decorator cuda performance perf pytorch",
         packages=find_namespace_packages(include=["torchperf", "torchperf.*"]),
         include_package_data=True,
+        python_requires = ">=3.9",
         classifiers=[
-            "License :: OSI Approved :: MIT License",
-            "Development Status :: 4 - Beta",
-            "Programming Language :: Python :: 3.8",
+            "License :: OSI Approved :: BSD License",
+            "Development Status :: 2 - Pre-Alpha",
             "Programming Language :: Python :: 3.9",
             "Programming Language :: Python :: 3.10",
             "Programming Language :: Python :: 3.11",

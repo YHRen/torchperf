@@ -1,8 +1,18 @@
 # PyTorch Perf
 
+## Install
+
+```
+pip install -U pytorch-perf
+```
+
+## Usage
+
 ```python
 import torch
-from torchperf import perf
+from torchperf import perf, info
+
+info.show()
 
 N = 100
 x = torch.rand(N, N, device="cuda")
@@ -25,5 +35,4 @@ def mul(x, y):
 z = mul(x, x)
 
 ```
-
 

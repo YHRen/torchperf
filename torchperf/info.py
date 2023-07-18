@@ -19,18 +19,21 @@ def get_gpu_driver():
     return rst.decode("utf-8").strip()
 
 
+def get_linux_kernel():
+    return subprocess.check_output(["uname", "-r"]).decode("utf-8").strip()
+
+
 def show():
     def ver2str(x):
         return ".".join(map(str, x))
 
-    kernel_ver = subprocess.check_output(["uname", "-r"])
     print("python     ver|", ver2str(sys.version_info[:3]))
     print("pytorch    ver|", torch.__version__)
     print("CUDA       ver|", torch.version.cuda)
     print("cuDNN      ver|", torch.backends.cudnn.version() / 1000)
     print("nccl       ver|", ver2str(torch.cuda.nccl.version()))
     print("GPU Driver ver|", get_gpu_driver())
-    print("Kernel     ver|", kernel_ver)
+    print("Kernel     ver|", get_linux_kernel())
     print("Device Name   |", torch.cuda.get_device_name(0))
     print("OS name       |", get_os_name())
     print("num GPUs      |", torch.cuda.device_count())

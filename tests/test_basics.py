@@ -45,3 +45,14 @@ def test_output_repeat():
 
     _ = mul(x, y)
     assert len(rst) > 0
+
+
+def test_output_repeat_warmup():
+    rst = []
+
+    @perf(o=rst, n=10, w=3)
+    def mul(x, y):
+        return x * y
+
+    _ = mul(x, y)
+    assert len(rst) > 0

@@ -28,7 +28,7 @@ with open("README.md", "r") as fh:
         keywords="decorator cuda performance perf pytorch",
         packages=find_namespace_packages(include=["torchperf", "torchperf.*"]),
         include_package_data=True,
-        python_requires = ">=3.9",
+        python_requires=">=3.9",
         classifiers=[
             "License :: OSI Approved :: BSD License",
             "Development Status :: 2 - Pre-Alpha",
@@ -37,7 +37,7 @@ with open("README.md", "r") as fh:
             "Programming Language :: Python :: 3.11",
             "Operating System :: POSIX :: Linux",
         ],
-        # install_requires=install_requires,
+        install_requires=["numpy"],
         # Install development dependencies with
         # pip install -r requirements/dev.txt -e .
     )
